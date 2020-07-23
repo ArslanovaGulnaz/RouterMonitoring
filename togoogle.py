@@ -29,6 +29,7 @@ def set_to_sheet():
 
     last_data = []
 
+    '''---Нахождение последнего письма по условию. Output: str---'''
     cAP_Scene = next(x for x in reversed(router_data) if 'cAP_Scene' in x)
     wAP_Sklad = next(x for x in reversed(router_data) if 'wAP_Sklad' in x)
     wAP_Stolovaya = next(x for x in reversed(router_data) if 'wAP_Stolovaya' in x)
@@ -41,7 +42,8 @@ def set_to_sheet():
     # wAP_3Shater = next(x for x in reversed(router_data) if 'wAP_3Shater' in x)
     Koryltay_01 = next(x for x in reversed(router_data) if '01_Koryltay' in x)
     SeletLive_03 = next(x for x in reversed(router_data) if '03_SeletLive' in x)
-    # wan2 = next(x for x in reversed(router_data) if 'WAN2' in x)
+    
+    '''-Добавление письма в массив---'''
     last_data.append(cAP_Scene)
     last_data.append(wAP_Sklad)
     last_data.append(wAP_Stolovaya)
@@ -58,7 +60,9 @@ def set_to_sheet():
 
     #print(last_data)
 
-    '''for router in reversed(router_data):
+    '''
+    Для обработки всех писем на почте
+    for router in reversed(router_data):
         if router.strip() in last_email:
             break
         else:
@@ -83,7 +87,7 @@ def set_to_sheet():
             except Exception as e:
                 print(f'Error: {e} -> {router}')'''
 
-    CREDENTIALS_FILE = 'pointsmonitoring-284014-49221dfdec9e.json'  # Имя файла с закрытым ключом, вы должны подставить свое
+    CREDENTIALS_FILE = '.json'  # Имя файла с закрытым ключом, вы должны подставить свое
 
     # Читаем ключи из файла
     credentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILE,
@@ -92,7 +96,7 @@ def set_to_sheet():
 
     httpAuth = credentials.authorize(httplib2.Http())  # Авторизуемся в системе
     service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)  # Выбираем работу с таблицами и 4 версию API
-    spreadsheet_id = '1yGyCBwfpRpZ8V-1_VrhPGDvhRdr3ps3cvmGX9bHY0RE'
+    spreadsheet_id = '' # id таблицы, вставить свое
 
     range_ = 'A1:E1'  # TODO: Update placeholder value.
     value_input_option = 'RAW'
