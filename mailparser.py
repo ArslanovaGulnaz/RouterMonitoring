@@ -34,7 +34,7 @@ def main():
         subjectWords = re.sub(r'[.!,;? ]', " ", decodedSubject).split()
         for subjWord in subjectWords:
             if "cAP_Scene" in subjWord or 'wAP_Sklad' in subjWord or 'wAP_Stolovaya' in subjWord\
-                    or 'сAP_ITShtab' in subjWord or '02_Shtab' in subjWord or '05_Scene' in subjWord\
+                    or 'cAP_ITShtab' in subjWord or '02_Shtab' in subjWord or '05_Scene' in subjWord\
                     or '04_Shater' in subjWord or 'wAP_Info' in subjWord or '07_Sphere' in subjWord\
                     or 'wAP_3Shater' in subjWord or '01_Koryltay' in subjWord or '03_SeletLive' in subjWord:
                 pointName = subjWord
