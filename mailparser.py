@@ -9,14 +9,14 @@ def main():
     pointName = ""
     mail = imaplib.IMAP4_SSL('imap.gmail.com')
     
-    mail.login('mail', 'pass')
+    mail.login('pointsMonitoring@gmail.com', 'P@ssw0rd2020')
     mail.list()
 
     dataArr = []
 
     # Выводит список папок в почтовом ящике.
     mail.select("inbox")  # Подключаемся к папке "входящие".
-    result, data = mail.search(None, "FROM 'mail")
+    result, data = mail.search(None, "FROM 'msteambckup@gmail.com OR msteamzabbixnotifier@gmail.com'") #"FROM 'msteambckup@gmail.com'
     ids = data[0]  # строка номеров писем
     '''--- Для всех писем---'''
     for id in ids.split():
@@ -33,7 +33,8 @@ def main():
             if "cAP_Scene" in subjWord or 'wAP_Sklad' in subjWord or 'wAP_Stolovaya' in subjWord\
                     or 'cAP_ITShtab' in subjWord or '02_Shtab' in subjWord or '05_Scene' in subjWord\
                     or '04_Shater' in subjWord or 'wAP_Info' in subjWord or '07_Sphere' in subjWord\
-                    or 'wAP_3Shater' in subjWord or '01_Koryltay' in subjWord or '03_SeletLive' in subjWord:
+                    or 'wAP_3Shater' in subjWord or '01_Koryltay' in subjWord or '03_SeletLive' in subjWord\
+                    or 'Forum_main_mikrotik_WAN1' in subjWord or 'Forum_main_mikrotik_WAN2' in subjWord:
                 pointName = subjWord
         '''---Проверка статуса точки---'''
         if 'Down' in decodedSubject:
