@@ -16,7 +16,7 @@ def main():
 
     # Выводит список папок в почтовом ящике.
     mail.select("inbox")  # Подключаемся к папке "входящие".
-    result, data = mail.search(None, "FROM 'msteambckup@gmail.com OR msteamzabbixnotifier@gmail.com'") #"FROM 'msteambckup@gmail.com'
+    result, data = mail.search(None, "FROM '<backup mail> OR <zabbix mail>") #"FROM 'msteambckup@gmail.com'
     ids = data[0]  # строка номеров писем
     '''--- Для всех писем---'''
     for id in ids.split():
