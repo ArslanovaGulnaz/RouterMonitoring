@@ -9,7 +9,7 @@ def main():
     pointName = ""
     mail = imaplib.IMAP4_SSL('imap.gmail.com')
     
-    mail.login('pointsMonitoring@gmail.com', 'P@ssw0rd2020')
+    mail.login('login', 'pass')
     mail.list()
 
     dataArr = []
