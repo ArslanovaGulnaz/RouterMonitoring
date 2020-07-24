@@ -88,7 +88,7 @@ def set_to_sheet():
             except Exception as e:
                 print(f'Error: {e} -> {router}')'''
 
-    CREDENTIALS_FILE = 'pointsmonitoring-284014-49221dfdec9e.json'  # Имя файла с закрытым ключом, вы должны подставить свое
+    CREDENTIALS_FILE = '.json'  # Имя файла с закрытым ключом, вы должны подставить свое
 
     # Читаем ключи из файла
     credentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILE,
@@ -97,7 +97,7 @@ def set_to_sheet():
 
     httpAuth = credentials.authorize(httplib2.Http())  # Авторизуемся в системе
     service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)  # Выбираем работу с таблицами и 4 версию API
-    spreadsheet_id = '1yGyCBwfpRpZ8V-1_VrhPGDvhRdr3ps3cvmGX9bHY0RE' # id таблицы, вставить свое
+    spreadsheet_id = '' # id таблицы, вставить свое
 
     range_ = 'A1:E1'  # TODO: Update placeholder value.
     value_input_option = 'RAW'
